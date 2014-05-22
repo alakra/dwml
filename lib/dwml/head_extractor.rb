@@ -20,9 +20,9 @@ class DWML
 
       @output.merge!(
         :product => {
-          :title         => element.xpath('product/title').text,
-          :field         => element.xpath('product/field').text,
-          :category      => element.xpath('product/category').text,
+          :title         => normalize_content( 'product/title' ),
+          :field         => normalize_content( 'product/field' ),
+          :category      => normalize_content( 'product/category' ),
           :creation_date => creation_date
         }
         )
@@ -34,14 +34,24 @@ class DWML
 
       @output.merge!(
         :source => {
-          :more_information => element.xpath('source/more-information').text,
           :product_center   => production_center.gsub(sub_center, " - #{sub_center}"),
-          :disclaimer       => element.xpath('source/disclaimer').text,
-          :credit           => element.xpath('source/credit').text,
-          :credit_logo      => element.xpath('source/credit-logo').text,
-          :feedback         => element.xpath('source/feedback').text
+          :more_information => normalize_content( 'source/more-information' ),
+          :disclaimer       => normalize_content( 'source/disclaimer' ),
+          :credit           => normalize_content( 'source/credit' ),
+          :credit_logo      => normalize_content( 'source/credit-logo' ),
+          :feedback         => normalize_content( 'source/feedback' )
         }
         )
+    end
+
+    def normalize_content(selector)
+      node = element.xpath(selector)
+
+      if node.blank?
+        ""
+      else
+        node.text
+      end
     end
   end
 end

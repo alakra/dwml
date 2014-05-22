@@ -213,27 +213,21 @@ class DWML
           value = condition.xpath("value").first
           next if value.blank?
 
+          hsh = { :start_time => layout.valid_times[index].start }
+
           visibility_node = value.xpath("visibility").first
-          visibility = if visibility_node.present? && visibility_node.text.present?
-                         {
+          if visibility_node.present? && visibility_node.text.present?
+            visibility = {
               :unit => visibility_node.attributes["units"].text,
               :value => visibility_node.text.to_f
             }
-                       else
-                         ""
-                       end
+            hsh.merge!( :visibility => visibility)
+          end
 
-          hsh = {
-            :start_time     => layout.valid_times[index].start,
-            :coverage       => value.attributes["coverage"].text,
-            :intensity      => value.attributes["intensity"].text,
-            :"weather-type" => value.attributes["weather-type"].text,
-            :qualifier      => value.attributes["qualifier"].text,
-            :visibility     => visibility
-          }
-
-          additive = value.attributes["additive"]
-          hsh.merge!(:additive => additive) if additive.present?
+          [:coverage, :intensity, :additive, :qualifier, :"weather-type"].each do |key|
+            attribute = value.attributes[key.to_s]
+            hsh.merge!(key => attribute.to_s) if attribute.present?
+          end
 
           @output[:weather][:conditions] << hsh
         end
