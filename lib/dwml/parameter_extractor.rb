@@ -249,6 +249,8 @@ class DWML
         @output[metric][type][:values] = []
 
         node.xpath("value").each_with_index do |value, index|
+          next if value.text.blank?
+
           hsh = {
             :value      => value.text.to_f,
             :start_time => layout.valid_times[index].start
