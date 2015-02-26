@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'nokogiri', '~> 1.6.1', '>= 1.6.1'
   s.add_runtime_dependency 'multi_json', '~> 1.10.1', '>= 1.10.1'
-  s.add_runtime_dependency 'activesupport', '~> 4.1.0', '>= 4.1.0'
+  s.add_runtime_dependency 'activesupport', '~> 4.2.0', '>= 4.2.0'
 
   s.required_ruby_version = '>= 1.9.3'
 
