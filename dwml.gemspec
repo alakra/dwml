@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
 
   s.extra_rdoc_files = ['README.md']
 
-  s.add_runtime_dependency 'nokogiri', '>= 1.6.6'
+  s.add_runtime_dependency 'nokogiri', '>= 1.6.6.2'
   s.add_runtime_dependency 'multi_json', '>= 1.11.1'
   s.add_runtime_dependency 'activesupport', '>= 4.2.2'
 
