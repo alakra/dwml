@@ -10,6 +10,6 @@ group :test do
   gem 'rspec', '~>3.9'
 end
 
-group :develepment, :test do
+group :development, :test do
   gem 'byebug'
 end
