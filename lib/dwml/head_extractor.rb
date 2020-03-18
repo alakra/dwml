@@ -1,3 +1,5 @@
+require 'active_support/time'
+
 class DWML
   class HeadExtractor
     attr_reader :output, :element

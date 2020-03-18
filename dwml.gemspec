@@ -20,11 +20,10 @@ Gem::Specification.new do |s|
 
   s.extra_rdoc_files = ['README.md']
 
-  s.add_runtime_dependency 'nokogiri', '>= 1.6.6.2'
-  s.add_runtime_dependency 'multi_json', '>= 1.11.1'
-  s.add_runtime_dependency 'activesupport', '>= 4.2.2'
+  s.add_runtime_dependency 'nokogiri', '>= 1.6'
+  s.add_runtime_dependency 'activesupport', '>= 5.2'
 
-  s.required_ruby_version = '>= 2.4.9'
+  s.required_ruby_version = '>= 2.5'
 
   s.files = `git ls-files`.split("\n")
   s.test_files = `git ls-files -- spec/*`.split("\n")

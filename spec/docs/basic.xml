@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<dwml version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd">
+  <head>
+    <product srsName="WGS 1984" concise-name="time-series" operational-mode="official">
+      <title>NOAA's National Weather Service Forecast Data</title>
+      <field>meteorological</field>
+      <category>forecast</category>
+      <creation-date refresh-frequency="PT1H">2020-03-05T18:49:42Z</creation-date>
+    </product>
+    <source>
+      <more-information>https://graphical.weather.gov/xml/</more-information>
+      <production-center>Meteorological Development Laboratory<sub-center>Product Generation Branch</sub-center></production-center>
+      <disclaimer>http://www.nws.noaa.gov/disclaimer.html</disclaimer>
+      <credit>https://www.weather.gov/</credit>
+      <credit-logo>https://www.weather.gov/logorequest</credit-logo>
+      <feedback>https://www.weather.gov/contact</feedback>
+    </source>
+  </head>
+  <data>
+    <location>
+      <location-key>point1</location-key>
+      <point latitude="38.99" longitude="-77.01"/>
+    </location>
+    <moreWeatherInformation applicable-location="point1">https://forecast-v3.weather.gov/point/38.99,-77.01</moreWeatherInformation>
+    <time-layout time-coordinate="local" summarization="none">
+      <layout-key>k-p24h-n5-1</layout-key>
+      <start-valid-time>2020-03-07T07:00:00-05:00</start-valid-time>
+      <end-valid-time>2020-03-07T19:00:00-05:00</end-valid-time>
+      <start-valid-time>2020-03-08T08:00:00-04:00</start-valid-time>
+      <end-valid-time>2020-03-08T20:00:00-04:00</end-valid-time>
+      <start-valid-time>2020-03-09T08:00:00-04:00</start-valid-time>
+      <end-valid-time>2020-03-09T20:00:00-04:00</end-valid-time>
+      <start-valid-time>2020-03-10T08:00:00-04:00</start-valid-time>
+      <end-valid-time>2020-03-10T20:00:00-04:00</end-valid-time>
+      <start-valid-time>2020-03-11T08:00:00-04:00</start-valid-time>
+      <end-valid-time>2020-03-11T20:00:00-04:00</end-valid-time>
+    </time-layout>
+    <time-layout time-coordinate="local" summarization="none">
+      <layout-key>k-p24h-n5-2</layout-key>
+      <start-valid-time>2020-03-06T19:00:00-05:00</start-valid-time>
+      <end-valid-time>2020-03-07T08:00:00-05:00</end-valid-time>
+      <start-valid-time>2020-03-07T20:00:00-05:00</start-valid-time>
+      <end-valid-time>2020-03-08T09:00:00-04:00</end-valid-time>
+      <start-valid-time>2020-03-08T20:00:00-04:00</start-valid-time>
+      <end-valid-time>2020-03-09T09:00:00-04:00</end-valid-time>
+      <start-valid-time>2020-03-09T20:00:00-04:00</start-valid-time>
+      <end-valid-time>2020-03-10T09:00:00-04:00</end-valid-time>
+      <start-valid-time>2020-03-10T20:00:00-04:00</start-valid-time>
+      <end-valid-time>2020-03-11T09:00:00-04:00</end-valid-time>
+    </time-layout>
+    <parameters applicable-location="point1">
+      <temperature type="maximum" units="Fahrenheit" time-layout="k-p24h-n5-1">
+        <name>Daily Maximum Temperature</name>
+        <value>48</value>
+        <value>59</value>
+        <value>68</value>
+        <value>66</value>
+        <value>62</value>
+      </temperature>
+      <temperature type="minimum" units="Fahrenheit" time-layout="k-p24h-n5-2">
+        <name>Daily Minimum Temperature</name>
+        <value>35</value>
+        <value>31</value>
+        <value>40</value>
+        <value>51</value>
+        <value>48</value>
+      </temperature>
+    </parameters>
+  </data>
+</dwml>
