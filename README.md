@@ -22,65 +22,71 @@ output = DWML.new(nokogiri_xml_doc).process
 
 The output will look something like this:
 
-```xml
-<?xml version="1.0"?>
-<dwml version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd">
-  <head>
-    <product srsName="WGS 1984" concise-name="time-series" operational-mode="official">
-      <title>NOAA's National Weather Service Forecast Data</title>
-      <field>meteorological</field>
-      <category>forecast</category>
-      <creation-date refresh-frequency="PT1H">2020-03-18T23:28:22Z</creation-date>
-    </product>
-    <source>
-      <more-information>https://graphical.weather.gov/xml/</more-information>
-      <production-center>Meteorological Development Laboratory<sub-center>Product Generation Branch</sub-center></production-center>
-      <disclaimer>http://www.nws.noaa.gov/disclaimer.html</disclaimer>
-      <credit>https://www.weather.gov/</credit>
-      <credit-logo>https://www.weather.gov/logorequest</credit-logo>
-      <feedback>https://www.weather.gov/contact</feedback>
-    </source>
-  </head>
-  <data>
-    <location>
-      <location-key>point1</location-key>
-      <point latitude="38.99" longitude="-77.01"/>
-    </location>
-    <moreWeatherInformation applicable-location="point1">https://forecast-v3.weather.gov/point/38.99,-77.01</moreWeatherInformation>
-    <time-layout time-coordinate="local" summarization="none">
-      <layout-key>k-p24h-n8-1</layout-key>
-      <start-valid-time>2020-03-18T08:00:00-04:00</start-valid-time>
-      <end-valid-time>2020-03-18T20:00:00-04:00</end-valid-time>
-      <start-valid-time>2020-03-19T08:00:00-04:00</start-valid-time>
-      <end-valid-time>2020-03-19T20:00:00-04:00</end-valid-time>
-      <start-valid-time>2020-03-20T08:00:00-04:00</start-valid-time>
-      <end-valid-time>2020-03-20T20:00:00-04:00</end-valid-time>
-      <start-valid-time>2020-03-21T08:00:00-04:00</start-valid-time>
-      <end-valid-time>2020-03-21T20:00:00-04:00</end-valid-time>
-      <start-valid-time>2020-03-22T08:00:00-04:00</start-valid-time>
-      <end-valid-time>2020-03-22T20:00:00-04:00</end-valid-time>
-      <start-valid-time>2020-03-23T08:00:00-04:00</start-valid-time>
-      <end-valid-time>2020-03-23T20:00:00-04:00</end-valid-time>
-      <start-valid-time>2020-03-24T08:00:00-04:00</start-valid-time>
-      <end-valid-time>2020-03-24T20:00:00-04:00</end-valid-time>
-      <start-valid-time>2020-03-25T08:00:00-04:00</start-valid-time>
-      <end-valid-time>2020-03-25T20:00:00-04:00</end-valid-time>
-    </time-layout>
-    <parameters applicable-location="point1">
-      <temperature type="maximum" units="Fahrenheit" time-layout="k-p24h-n8-1">
-        <name>Daily Maximum Temperature</name>
-        <value>56</value>
-        <value>76</value>
-        <value>78</value>
-        <value>54</value>
-        <value>49</value>
-        <value>49</value>
-        <value>59</value>
-        <value>58</value>
-      </temperature>
-    </parameters>
-  </data>
-</dwml>
+```ruby
+    {:product=>
+      {:title=>"NOAA's National Weather Service Forecast Data",
+       :field=>"meteorological",
+       :category=>"forecast",
+       :creation_date=>Thu, 05 Mar 2020 18:49:42 UTC +00:00},
+     :source=>
+      {:product_center=>
+        "Meteorological Development Laboratory - Product Generation Branch",
+       :more_information=>"https://graphical.weather.gov/xml/",
+       :disclaimer=>"http://www.nws.noaa.gov/disclaimer.html",
+       :credit=>"https://www.weather.gov/",
+       :credit_logo=>"https://www.weather.gov/logorequest",
+       :feedback=>"https://www.weather.gov/contact"},
+     :parameters=>
+      {"point1"=>
+        {:latitude=>38.99,
+         :longitude=>-77.01,
+         :temperature=>
+          {:maximum=>
+            {:name=>"Daily Maximum Temperature",
+             :values=>
+              [{:value=>48.0,
+                :start_time=>Sat, 07 Mar 2020 12:00:00 UTC +00:00,
+                :unit=>"Fahrenheit",
+                :end_time=>Sun, 08 Mar 2020 00:00:00 UTC +00:00},
+               {:value=>59.0,
+                :start_time=>Sun, 08 Mar 2020 12:00:00 UTC +00:00,
+                :unit=>"Fahrenheit",
+                :end_time=>Mon, 09 Mar 2020 00:00:00 UTC +00:00},
+               {:value=>68.0,
+                :start_time=>Mon, 09 Mar 2020 12:00:00 UTC +00:00,
+                :unit=>"Fahrenheit",
+                :end_time=>Tue, 10 Mar 2020 00:00:00 UTC +00:00},
+               {:value=>66.0,
+                :start_time=>Tue, 10 Mar 2020 12:00:00 UTC +00:00,
+                :unit=>"Fahrenheit",
+                :end_time=>Wed, 11 Mar 2020 00:00:00 UTC +00:00},
+               {:value=>62.0,
+                :start_time=>Wed, 11 Mar 2020 12:00:00 UTC +00:00,
+                :unit=>"Fahrenheit",
+                :end_time=>Thu, 12 Mar 2020 00:00:00 UTC +00:00}]},
+           :minimum=>
+            {:name=>"Daily Minimum Temperature",
+             :values=>
+              [{:value=>35.0,
+                :start_time=>Sat, 07 Mar 2020 00:00:00 UTC +00:00,
+                :unit=>"Fahrenheit",
+                :end_time=>Sat, 07 Mar 2020 13:00:00 UTC +00:00},
+               {:value=>31.0,
+                :start_time=>Sun, 08 Mar 2020 01:00:00 UTC +00:00,
+                :unit=>"Fahrenheit",
+                :end_time=>Sun, 08 Mar 2020 13:00:00 UTC +00:00},
+               {:value=>40.0,
+                :start_time=>Mon, 09 Mar 2020 00:00:00 UTC +00:00,
+                :unit=>"Fahrenheit",
+                :end_time=>Mon, 09 Mar 2020 13:00:00 UTC +00:00},
+               {:value=>51.0,
+                :start_time=>Tue, 10 Mar 2020 00:00:00 UTC +00:00,
+                :unit=>"Fahrenheit",
+                :end_time=>Tue, 10 Mar 2020 13:00:00 UTC +00:00},
+               {:value=>48.0,
+                :start_time=>Wed, 11 Mar 2020 00:00:00 UTC +00:00,
+                :unit=>"Fahrenheit",
+                :end_time=>Wed, 11 Mar 2020 13:00:00 UTC +00:00}]}}}}}
 ```
 
 ## FAQ
