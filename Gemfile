@@ -6,7 +6,6 @@ group :development do
 end
 
 group :test do
-  gem 'rake'
   gem 'simplecov', '~>0.17', :require => false
   gem 'rspec', '~>3.9'
 end
