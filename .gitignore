@@ -1,5 +1,8 @@
 Gemfile.lock
 .ruby-version
 .tool-versions
+.yardoc/*
+doc/*
 coverage/*
 *.gem
+.byebug_history

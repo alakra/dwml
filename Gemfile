@@ -1,9 +1,15 @@
 source 'https://rubygems.org'
 gemspec
 
+group :development do
+  gem 'yard', '~>0.9'
+end
+
 group :test do
-  gem 'simplecov', '~>0.8.2', :require => false
-  gem 'webmock', '~>1.17.4'
-  gem 'vcr', '~>2.9.0'
-  gem 'rspec', '~>2.14.0'
+  gem 'simplecov', '~>0.17', :require => false
+  gem 'rspec', '~>3.9'
+end
+
+group :development, :test do
+  gem 'byebug'
 end
